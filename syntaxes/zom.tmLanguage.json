@@ -11,10 +11,20 @@
 	],
 	"repository": {
 		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.zom",
-				"match": "\\b(if|while|for|return)\\b"
-			}]
+			"patterns": [
+				{
+					"name": "keyword.control.zom",
+					"match": "\\b(if|else|while|for|return)\\b"
+				},
+				{
+					"name": "keyword.other",
+					"match": "\\b(func|let)\\b"
+				},
+				{
+					"name": "keyword.operator",
+					"match": "\\s+(\\+|\\-|\\*|\\/|\\%|\\^|\\=)\\s+"
+				}
+			]
 		},
 		"strings": {
 			"name": "string.quoted.double.zom",
