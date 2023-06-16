@@ -7,6 +7,18 @@
 		},
 		{
 			"include": "#strings"
+		},
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#types"
+		},
+		{
+			"include": "#numerics"
+		},
+		{
+			"include": "#variables"
 		}
 	],
 	"repository": {
@@ -22,7 +34,7 @@
 				},
 				{
 					"name": "keyword.operator",
-					"match": "\\s+(\\+|\\-|\\*|\\/|\\%|\\^|\\=)\\s+"
+					"match": "\\s+(\\+|\\-|\\*|\\/|\\%|\\^)\\s+"
 				}
 			]
 		},
@@ -34,6 +46,61 @@
 				{
 					"name": "constant.character.escape.zom",
 					"match": "\\\\."
+				}
+			]
+		},
+		"comments": {
+			"patterns": [
+				{
+					"comment": "empty comment",
+					"name": "comment.block.zom",
+					"match": "\\(\\*\\*\\)"
+				},
+				{
+					"comment": "zomdoc comment",
+					"name": "comment.block.zom",
+					"begin": "\\(\\*\\*",
+					"end": "\\*\\)",
+					"patterns": [
+						{ "include": "#comments" }
+					]
+				},
+				{
+					"comment": "block comment",
+					"name": "comment.block.zom",
+					"begin": "\\(\\*",
+					"end": "\\*\\)",
+					"patterns": [
+						{ "include": "#comments" }
+					]
+				}
+			]
+		},
+		"types": {
+			"patterns": [
+				{
+					"name": "storage.type.zom",
+					"match": "\\b(sbyte|short|int|long|ubyte|ushort|uint|ulong|float|double|bool|char|string)\\b"
+				},
+				{
+					"name": "constant.language.values.zom",
+					"match": "\\b(true|false)\\b"
+				}
+			]	
+		},
+		"numerics": {
+			"name": "constant.numeric.zom",
+			"match": "\\d+[.[\\d]+]?"
+		},
+		"variables": {
+			"patterns": [
+				{
+					"name": "variable.language",
+					"match": "\\b(this|super)\\b"
+				},
+				{
+					"name": "variable.name.zom",
+					"match": "\\w+"
 				}
 			]
 		}
