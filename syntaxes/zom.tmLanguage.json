@@ -101,7 +101,7 @@
 		"variables": {
 			"patterns": [
 				{
-					"name": "variable.language",
+					"name": "variable.language.zom",
 					"match": "\\b(this|super)\\b"
 				},
 				{
