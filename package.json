@@ -1,0 +1,25 @@
+{
+  "name": "vscode-ext-zom",
+  "displayName": "vscode-ext-zom",
+  "description": "VSCode extension for highlighting for Zom Lang.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.79.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "zom",
+      "aliases": ["Zom", "zom"],
+      "extensions": [".zom"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "zom",
+      "scopeName": "source.zom",
+      "path": "./syntaxes/zom.tmLanguage.json"
+    }]
+  }
+}
