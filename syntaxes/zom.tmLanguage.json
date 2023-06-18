@@ -36,7 +36,7 @@
 				},
 				{
 					"name": "keyword.zom",
-					"match": "\\b(func|let)\\b"
+					"match": "\\b(func|var|const|struct|inherit)\\b"
 				},
 				{
 					"name": "keyword.operator.zom",
@@ -86,7 +86,7 @@
 			"patterns": [
 				{
 					"name": "storage.type.zom",
-					"match": "\\b(sbyte|short|int|long|ubyte|ushort|uint|ulong|float|double|bool|char|string)\\b"
+					"match": "\\b(sbyte|short|int|long|ubyte|ushort|uint|ulong|float|double|bool|char)\\b"
 				},
 				{
 					"name": "constant.language.values.zom",
@@ -102,7 +102,7 @@
 			"patterns": [
 				{
 					"name": "variable.language.zom",
-					"match": "\\b(this|super)\\b"
+					"match": "\\b(self|super)\\b"
 				},
 				{
 					"name": "variable.name.zom",
