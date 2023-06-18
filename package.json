@@ -1,6 +1,6 @@
 {
   "name": "vscode-ext-zom",
-  "displayName": "vscode-ext-zom",
+  "displayName": "Zom Highlight",
   "description": "VSCode extension for highlighting for Zom Lang.",
   "version": "0.0.1",
   "engines": {
