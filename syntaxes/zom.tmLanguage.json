@@ -36,7 +36,7 @@
 				},
 				{
 					"name": "keyword.zom",
-					"match": "\\b(func|var|const|struct|inherit)\\b"
+					"match": "\\b(func|var|const|struct|enum|union|pub)\\b"
 				},
 				{
 					"name": "keyword.operator.zom",
