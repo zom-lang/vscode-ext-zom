@@ -32,11 +32,11 @@
 			"patterns": [
 				{
 					"name": "keyword.control.zom",
-					"match": "\\b(if|else|while|for|return)\\b"
+					"match": "\\b(if|else|while|for|return|loop)\\b"
 				},
 				{
 					"name": "keyword.zom",
-					"match": "\\b(func|extern|var|const|struct|enum|union|pub)\\b"
+					"match": "\\b(func|extern|var|const|struct|enum|union|pub|scheme)\\b"
 				},
 				{
 					"name": "keyword.operator.zom",
@@ -76,6 +76,15 @@
 					"name": "comment.block.zom",
 					"begin": "\\(\\*",
 					"end": "\\*\\)",
+					"patterns": [
+						{ "include": "#comments" }
+					]
+				},
+				{
+					"comment": "line comment zom",
+					"name": "comment.line.number-sign.zom",
+					"begin": "#",
+					"end": "\n",
 					"patterns": [
 						{ "include": "#comments" }
 					]
