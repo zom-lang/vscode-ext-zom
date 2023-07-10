@@ -3,6 +3,7 @@
   "displayName": "Zom Highlight",
   "description": "VSCode extension for highlighting for Zom Lang.",
   "version": "0.0.1",
+  "license": "Apache-2.0",
   "engines": {
     "vscode": "^1.79.0"
   },
