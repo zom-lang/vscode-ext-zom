@@ -36,7 +36,7 @@
 				},
 				{
 					"name": "keyword.zom",
-					"match": "\\b(func|extern|var|const|struct|enum|pub|scheme|comptime|in)\\b"
+					"match": "\\b(func|extern|var|const|struct|enum|pub|scheme|comptime|in|undefined)\\b"
 				},
 				{
 					"comment": "zom operators (TODO: add operators of the RFC 0004)",
@@ -79,7 +79,8 @@
 					"end": "\n",
 					"patterns": [
 						{ "include": "#comments" }
-					]
+					],
+					"include": "source.markdown"
 				},
 				{
 					"comment": "block comment",
@@ -121,18 +122,22 @@
 					"match": "\\b(self|super)\\b"
 				},
 				{
-					"name": "entity.name.function",
-					"match": "\\w+\\("
-				},
-				{
 					"name": "variable.name.zom",
 					"match": "\\w+"
 				}
 			]
 		},
 		"functions": {
-			"name": "entity.name.function.zom",
-			"match": "\\w+\\("
+			"patterns": [
+				{
+					"name": "support.function.scheme.zom",
+					"match": "@\\w+\\("
+				},
+				{
+					"name": "entity.name.function.zom",
+					"match": "(?!@)\\w+\\s*\\("
+				}
+			]
 		}
 	},
 	"scopeName": "source.zom"
