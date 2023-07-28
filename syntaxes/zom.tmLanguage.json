@@ -15,9 +15,6 @@
 			"include": "#comments"
 		},
 		{
-			"include": "#types"
-		},
-		{
 			"include": "#numerics"
 		},
 		{
@@ -31,13 +28,48 @@
 		"keywords": {
 			"patterns": [
 				{
-					"name": "keyword.control.zom",
-					"match": "\\b(if|else|while|for|return|loop|continue)\\b"
+					"name": "keyword.default.zom",
+					"match": "\\b(const|var|func|in|scheme)\\b"
 				},
 				{
-					"name": "keyword.zom",
-					"match": "\\b(func|extern|var|const|struct|enum|pub|scheme|comptime|in|undefined)\\b"
+					"match": "\\b(while|for|loop)\\b",
+					"name": "keyword.control.repeat.zom"
 				},
+				{
+					"name": "keyword.storage.zom",
+					"match": "\\b(extern|packed|pub|comptime)\\b"
+				},
+				{
+					"name": "keyword.structure.zom",
+					"match": "\\b(struct|enum)\\b"
+				},
+				{
+					"name": "keyword.control.flow.zom",
+					"match": "\\b(break|return|continue)\\b"
+				},
+				{
+					"name": "keyword.control.conditional.zom",
+					"match": "\\b(if|else)\\b"
+				},
+
+				{
+					"name": "keyword.constant.default.zom",
+					"match": "\\b(undefined)\\b"
+				},
+				{
+					"name": "keyword.constant.bool.zom",
+					"match": "\\b(true|false)\\b"
+				},
+				{
+					"name": "keyword.type.zom",
+					"match": "\\b(bool|void|type|str)\\b"
+				},
+				{
+					"name": "keyword.type.integer.zom",
+					"match": "\\b(i8|i16|i32|i64|i128|u8|u16|u32|u64|u128|f16|f32|f64|f128)\\b"
+				},
+
+
 				{
 					"comment": "zom operators (TODO: add operators of the RFC 0004)",
 					"name": "keyword.operator.zom",
@@ -61,26 +93,22 @@
 				{
 					"comment": "empty comment",
 					"name": "comment.block.zom",
-					"match": "\\/\\*\\*\\/"
-				},
-				{
-					"comment": "zomdoc comment",
-					"name": "comment.block.documentation.zom.self",
-					"begin": "/// ",
-					"end": "\n",
+					"match": "\\/\\*\\*\\/",
 					"patterns": [
-						{ "include": "#comments" }
+						{
+						  "include": "#commentContents"
+						}
 					]
 				},
 				{
 					"comment": "zomdoc comment",
-					"name": "comment.block.documentation.zom.super",
-					"begin": "//! ",
+					"name": "comment.block.documentation.zom",
+					"begin": "\\/\\/(\\!|\\/) ",
 					"end": "\n",
 					"patterns": [
-						{ "include": "#comments" }
-					],
-					"include": "source.markdown"
+						{ "include": "#comments" },
+						{ "include": "#commentContents" }
+					]
 				},
 				{
 					"comment": "block comment",
@@ -88,28 +116,30 @@
 					"begin": "\\/\\*",
 					"end": "\\*\\/",
 					"patterns": [
-						{ "include": "#comments" }
+						{ "include": "#comments" },
+						{ "include": "#commentContents"}
 					]
 				},
 				{
 					"comment": "line comment zom",
 					"name": "comment.line.double-slash.zom",
 					"begin": "//",
-					"end": "\n"
+					"end": "\n",
+					"patterns": [
+						{
+						  "include": "#commentContents"
+						}
+					]
 				}
 			]
 		},
-		"types": {
-			"patterns": [
-				{
-					"name": "storage.type.zom",
-					"match": "\\b(i8|i16|i32|i64|i128|u8|u16|u32|u64|u128|f32|f64|bool|char|str)\\b"
-				},
-				{
-					"name": "constant.language.values.zom",
-					"match": "\\b(true|false)\\b"
-				}
-			]	
+		"commentContents": {
+		  "patterns": [
+			{
+			  "match": "\\b(TODO|FIXME|XXX|NOTE)\\b:?",
+			  "name": "keyword.todo.zom"
+			}
+		  ]
 		},
 		"numerics": {
 			"name": "constant.numeric.zom",
