@@ -32,13 +32,14 @@
 			"patterns": [
 				{
 					"name": "keyword.control.zom",
-					"match": "\\b(if|else|while|for|return|loop)\\b"
+					"match": "\\b(if|else|while|for|return|loop|continue)\\b"
 				},
 				{
 					"name": "keyword.zom",
-					"match": "\\b(func|extern|var|const|struct|enum|union|pub|scheme)\\b"
+					"match": "\\b(func|extern|var|const|struct|enum|pub|scheme|comptime|in)\\b"
 				},
 				{
+					"comment": "zom operators (TODO: add operators of the RFC 0004)",
 					"name": "keyword.operator.zom",
 					"match": "\\s+(\\+|\\-|\\*|\\/|\\%|\\^)\\s+"
 				}
@@ -60,13 +61,22 @@
 				{
 					"comment": "empty comment",
 					"name": "comment.block.zom",
-					"match": "\\(\\*\\*\\)"
+					"match": "\\/\\*\\*\\/"
 				},
 				{
 					"comment": "zomdoc comment",
-					"name": "comment.block.zom",
-					"begin": "\\(\\*\\*",
-					"end": "\\*\\)",
+					"name": "comment.block.documentation.zom.self",
+					"begin": "/// ",
+					"end": "\n",
+					"patterns": [
+						{ "include": "#comments" }
+					]
+				},
+				{
+					"comment": "zomdoc comment",
+					"name": "comment.block.documentation.zom.super",
+					"begin": "//! ",
+					"end": "\n",
 					"patterns": [
 						{ "include": "#comments" }
 					]
@@ -74,20 +84,17 @@
 				{
 					"comment": "block comment",
 					"name": "comment.block.zom",
-					"begin": "\\(\\*",
-					"end": "\\*\\)",
+					"begin": "\\/\\*",
+					"end": "\\*\\/",
 					"patterns": [
 						{ "include": "#comments" }
 					]
 				},
 				{
 					"comment": "line comment zom",
-					"name": "comment.line.number-sign.zom",
-					"begin": "#",
-					"end": "\n",
-					"patterns": [
-						{ "include": "#comments" }
-					]
+					"name": "comment.line.double-slash.zom",
+					"begin": "//",
+					"end": "\n"
 				}
 			]
 		},
@@ -112,6 +119,10 @@
 				{
 					"name": "variable.language.zom",
 					"match": "\\b(self|super)\\b"
+				},
+				{
+					"name": "entity.name.function",
+					"match": "\\w+\\("
 				},
 				{
 					"name": "variable.name.zom",
