@@ -149,11 +149,15 @@
 			"patterns": [
 				{
 					"name": "variable.language.zom",
-					"match": "\\b(self|super)\\b"
+					"match": "\\b(self)\\b"
 				},
 				{
 					"name": "variable.name.zom",
-					"match": "\\w+"
+					"match": "[a-z0-9_]\\w+"
+				},
+				{
+					"name": "meta.definition.variable",
+					"match": "[A-Z]\\w+"
 				}
 			]
 		},
@@ -161,7 +165,7 @@
 			"patterns": [
 				{
 					"name": "support.function.scheme.zom",
-					"match": "@\\w+\\("
+					"match": "@\\w+(\\(|\\[|\\{)"
 				},
 				{
 					"name": "entity.name.function.zom",
